@@ -23,6 +23,7 @@ function sizeResize(SIZE) {
         element.style.width = `${CONTAINERSIZE/(SIZE**(1/2))}vh`;
         element.style.height = `${CONTAINERSIZE/(SIZE**(1/2))}vh`;
         element.style.border = ".1px solid";
+        element.style.backgroundColor = "#ee82ee78";
     });
 };
 
@@ -44,4 +45,12 @@ resize.addEventListener("click", () => {
     };
     clear()
     sizeResize(newSize);
+});
+
+reset.addEventListener("click", () => {
+    const pixelSize = document.querySelectorAll(".container div");
+
+    pixelSize.forEach((element)=>{
+        element.style.backgroundColor = "#ee82ee78";
+    });
 });
