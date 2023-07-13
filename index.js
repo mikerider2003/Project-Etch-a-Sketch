@@ -35,7 +35,18 @@ function clear() {
     });
 };
 
+function coloring() {
+    const pixelSize = document.querySelectorAll(".container div");
+    
+    pixelSize.forEach((element)=> {
+        element.addEventListener("mouseover", ()=>{
+            element.style.backgroundColor = "white";
+        });
+    });
+};
+
 sizeResize(SIZE);
+coloring();
 
 resize.addEventListener("click", () => {
     const newSize = prompt("Enter new size (8 - 64):");
@@ -43,8 +54,9 @@ resize.addEventListener("click", () => {
     if (newSize < 8 || newSize > 64) {
         return;
     };
-    clear()
+    clear();
     sizeResize(newSize);
+    coloring();
 });
 
 reset.addEventListener("click", () => {
@@ -53,4 +65,5 @@ reset.addEventListener("click", () => {
     pixelSize.forEach((element)=>{
         element.style.backgroundColor = "#ee82ee78";
     });
+    coloring();
 });
